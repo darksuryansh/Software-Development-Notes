@@ -1,0 +1,10 @@
+Backend-structure
+
+
+server/ app.js ------create server only 
+controllers/services------Bussiness Logics (Login, Signup)
+Routes -------------api's
+middleware ------------middleware (Authentication/ Authorization )
+databases ------------- model /schema 
+
+CLEAN CODE 
