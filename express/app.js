@@ -1,3 +1,5 @@
+// 6.  Express.js
+
 // npm init to initialize the package.json 
 // npm init -y for automatically create package.json with default values
 
@@ -40,8 +42,26 @@ app.get("/api/user", (req,res)=>{
     });
 });
 
+
+// get product by id 
+
 app.get("/api/product/:productId", (req,res)=>{
-    const productId = req.params.productId;
+   
+
+
+
+    const Id = req.params.productId;
+
+    // const {Id} = req.params;     // object destructuring
+
+    const product = {
+        id:1,
+        name:"product 1",
+    };
+    res.status(200).json({
+        success:true,
+        product,        
+    });
 
 
 });
