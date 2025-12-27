@@ -8,3 +8,22 @@ middleware ------------middleware (Authentication/ Authorization )
 databases ------------- model /schema 
 
 CLEAN CODE 
+
+Status Codes -->
+
+
+https://blog.postman.com/what-are-http-status-codes/
+
+200 - success (OK)
+201 - create 
+202 - accepted 
+
+400 - bad req (invalid syntex)
+401 - Unauthorized 
+404 - Not found
+
+500 - internal server error
+
+
+
+more in documentation 
