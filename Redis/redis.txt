@@ -1,4 +1,4 @@
-Setup redi --- docker run -d --name redis -p 6379:6379  redis:latest
+Setup redis --- docker run -d --name redis -p 6379:6379  redis:latest
 
 docker exce -it id bash 
 redis-cli 
