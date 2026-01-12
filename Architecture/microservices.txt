@@ -1,0 +1,98 @@
+In microservice archi every service have diffrent database and server ( e.g - MONGO, SQL accoridng to need )
+isolated and independent services
+
+## ADVANTAGES
+
+If one services is crash other services are countinue to run beacause they are independent 
+no need to redeploye if one service feature change because they are independent 
+CI/CD is became easy 
+scalabilty
+flexibility 
+faster deployementand development 
+easier maintainace and updates
+
+
+## LIMITATIONS
+
+Deployement is costly 
+tough to maintain because a lot of servers 
+
+
+
+## To build  service or feature 
+
+service 1 =   routes -> middleware -> bussiness logic -> database access
+service 2 =   routes -> middleware -> bussiness logic -> database access
+service 3 =   routes -> middleware -> bussiness logic -> database access
+
+
+## DATA MANAGEMENT  
+how u store and fetch data 
+
+
+so in microservice we can't access the data of different service directly  
+database per service - scalabilty easy , efficiency , schema/ table can be change 
+cant commicate with each other because if schema change code does not work 
+
+
+data management is big task in microservice
+
+# EXAMPLE:
+
+a E commerce system :-
+
+1 user service  --->  user db
+2 product service  --->  product db 
+3 purchased service  --->  order db
+4 product order by user --->        (have to commincate with all three but how )
+
+
+
+
+
+## CAN be commincate by 2 ways:-
+
+1. SYNC
+
+service A ----res----> service B  (wait for the response form the service B that is syncronous)
+
+can be through  by REST APIs 
+
+
+
+
+2. ASYNC 
+
+
+when client /user ---- req---->  service 1 ---->  service 1 db ------- event emmit in (EVENT BUS / EVENT BROKER / MSG BROKER ) user data store 
+
+
+
+                        1 user service  --->  user db       --------> user store
+                                                                    |
+                        2 product service  --->  product db   ---    |    
+    client-----                                                       |--------- EVENT BUS /BROKER   (store all services events and send to 4 services )
+                        3 purchased service  --->  order db                             |
+                                                                                        |   
+                                                                                        |   
+                        4 product order by user ---              < ---------------------                    
+
+                                
+                                *ALL other services data can be access by event brokers (only access the data by service 4 do not store the data (doest contain any db ))
+                                *So when req info /data access that serce DB and show the data 
+                                * NOT a good way beacause if a service stop again the other services affect 
+
+
+
+    
+
+
+
+
+
+
+3 Hybrid 
+
+
+
+

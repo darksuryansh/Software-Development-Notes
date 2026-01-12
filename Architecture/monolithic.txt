@@ -1,0 +1,22 @@
+In monolithic Single server (code base )for multiple services / features 
+
+## LIMITATIONS
+
+in case of server failure / crash all services fail
+or on eservice stop so all the depedent services will also stop 
+if database crash all services also stop because data could not store and fetch 
+iF one service feature change whole services redeploy beacause they are depdent on each other
+CI/CD became issue beacause of dependent services
+
+
+## ADVANTAGES
+
+cheap deployement 
+
+
+
+## To build  service or feature
+
+only single implementration required 
+
+routes -> middleware -> bussiness logic -> database access
