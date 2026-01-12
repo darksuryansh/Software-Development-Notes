@@ -56,7 +56,8 @@ a E commerce system :-
 
 service A ----res----> service B  (wait for the response form the service B that is syncronous)
 
-can be through  by REST APIs 
+((can be through  by REST APIs ))
+wait for res form DB 
 
 
 
@@ -80,16 +81,32 @@ when client /user ---- req---->  service 1 ---->  service 1 db ------- event emm
                                 
                                 *ALL other services data can be access by event brokers (only access the data by service 4 do not store the data (doest contain any db ))
                                 *So when req info /data access that serce DB and show the data 
-                                * NOT a good way beacause if a service stop again the other services affect 
+                                *NOT a good way beacause if a service stop again the other services affect 
 
 
 
     
 
+                        1 user service  --->  user db       --------> user store
+                                                                    |
+                        2 product service  --->  product db   ---    |    
+    client-----                                                       |--------- EVENT BUS /BROKER   (store all services events and send to 4 services )
+                        3 purchased service  --->  purchased db                             |
+                                                                                        |   
+                                                                                        |   
+                        4 product order by user --- ( orders DB)            < ---------------------                    
+
+
+                                *ALL other services data can be access by event brokers (Now all the data stored in the orders DB it will store data after the event triggered by other services and store the chnage info in own DB )
+                                *So when req info /data it show the data from accessing from own DB 
+                                *Now if the other services fails the Orders services could not stop because it has all the data stored in own DB 
+                                *A good way but Cost is more beacause has to use a one more database
 
 
 
 
+        
+((can be through  message brokers like :- Rabbit MQ and Kafka))
 
 3 Hybrid 
 
